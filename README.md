@@ -2,6 +2,20 @@
 
 Reference implementation for the T3 agentic framework.
 
+## Overview
+
+**FET Sensor Digital Twin:** Structured representation of 28 fields across 5 categories extracted from scientific literature.
+
+<p align="center">
+  <img src="figures/schematic.png" width="600">
+</p>
+
+**LLM-based Information Extraction:** TextGrad optimization pipeline with autonomous prompt refinement.
+
+<p align="center">
+  <img src="figures/LLM_pipeline_small.png" width="700">
+</p>
+
 ## Structure
 
 ```
