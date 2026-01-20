@@ -21,7 +21,10 @@ Part_II_Twin/
 ├── gnn_training/               # DTE-GNN model
 │   ├── train_hetero_gnn_residual_sgnn.py
 │   ├── baseline_tabular.py
-│   └── baseline_tabular_extended.py
+│   ├── baseline_tabular_extended.py
+│   └── bayesian_optimization/  # Hyperparameter search
+│       ├── bo_ballet.py        # BALLET-based BO runner
+│       └── FMRG-Ballet/        # BALLET framework (DKBO)
 │
 └── sample_data/                # Anonymized samples
     ├── original/               # 5 original records
