@@ -1,0 +1,16 @@
+{
+  "extraction_guidelines": "Only extract sensor information from the primary article presented above; ignore any cited, supplementary, or reference excerpts that follow the main text.",
+  "records": [
+    {
+      "sensor_type": "(allowed values: `liquid`, `bio`, `gas`). Definitions: - liquid: sensors that detect analytes in a liquid medium (e.g., buffers, urine, water). - bio: sensors that detect biological molecules (e.g., neurotransmitters, proteins, DNA, antibodies) even when measured in liquid. - gas: sensors that detect gaseous analytes.",
+      "detect_target": "(single canonical target name, e.g., epinephrine)",
+      "lower_detection_limit": "lowest detection limit (LOD). **If the article reports a limit of detection (LOD), use that value; otherwise, if only a concentration range is provided, use the lowest concentration of that range.** If multiple values are mentioned, select the most sensitive/lowest. When several ranges are reported, use the lowest value of the widest overall range. If none, output ‘Not specified’. If the paper provides no explicit concentration limit but reports a pH range (e.g., pH 4–9), calculate H⁺ limits as: lower_detection_limit = 10^(‑upper pH) M. Report the value exactly as it appears in the paper (e.g., ppbV for gas sensors) without converting. **If the article reports P/Pv values, derive the lower detection limit by multiplying the smallest reported P/Pv by the equilibrium vapor pressure Pv (given in the article) and convert to ppm (≈ P/Pv × Pv × 1000).**",
+      "upper_detection_limit": "highest detection limit (upper bound of the dynamic range). **If the article reports a calibrated detection range (e.g., linear range), use the highest concentration mentioned for `upper_detection_limit`; otherwise, follow the existing rules.** If multiple values are mentioned, select the highest. When several ranges are reported, use the highest value of the widest overall range. If none, output ‘Not specified’. If the paper provides no explicit concentration limit but reports a pH range (e.g., pH 4–9), calculate H⁺ limits as: upper_detection_limit = 10^(‑lower pH) M. Report the value exactly as it appears in the paper (e.g., ppbV for gas sensors) without converting. **If the article reports P/Pv values, derive the upper detection limit by multiplying the largest reported P/Pv by the equilibrium vapor pressure Pv (given in the article) and convert to ppm (≈ P/Pv × Pv × 1000).**",
+      "probe_material": "(active sensing material (functional coating or polymer) that directly interacts with the analyte; NOT the substrate or composite device)",
+      "test_operating_temperature (celcius)": "temperature at which the sensor performed detection (operating temperature during measurement); if not explicitly given, default to 25 °C (room temperature).",
+      "pH_value": "(use -1 for gas, otherwise a number, if pH sensor, use range like xx-yy)",
+      "test_medium": "(the name of the medium, e.g. air, water, or other medium)"
+    }
+    // continue if the publication has recorded multiple different targets
+  ]
+}

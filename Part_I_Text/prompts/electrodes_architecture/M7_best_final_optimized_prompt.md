@@ -1,0 +1,17 @@
+After reading the scientific publication full text provided above, please try to generate formatted JSON file for extraction of important information. **The `gate` field refers to the material of the gate electrode/contact (the conductive layer), not the underlying substrate unless the substrate itself acts as the gate.** **If the liquid‑gate electrode material is not explicitly mentioned, leave the field empty or indicate “Not available”.** **Select the functional thin‑film sensing layer deposited on the gate region (e.g., a metal‑organic framework such as HKUST‑1 or ZIF‑8) as the gate material, ignoring other metals. If the gate is described as a Si (n‑doped) substrate used as a back‑gate and no functional layer is specified, record the gate material as “silicon” (or “boron/silicon”) instead of any metal stack.** **If the gate electrode is a metal layer (e.g., gold) deposited on a Si/SiO₂ substrate, record that metal as the gate material.** **Map components: reference electrode → gate; semiconductor channel → source and drain; ignore working electrode. Use channel material when source/drain not specified.** **If the gate bias is applied through a reference electrode, treat the material of that electrode (e.g., Hg₂Cl₂ for a calomel electrode) as the `gate` material.** Identify the material used for the gate, the source, and the drain (if specified), and indicate the overall structure design type (Standard, Top‑gated, etc.). List the gate, source, and drain materials exactly as they appear in the paper, preserving any multilayer/stack notation (e.g., titanium/gold). Leave "" for not available fields. **If the paper does not explicitly state the electrode material, assume the typical ISFET configuration – gate electrode = silver/silver‑chloride, source electrode = gold, drain electrode = gold.** **Assume that the gate, source, and drain electrodes are gold contacts, and that the device uses a standard (not back‑gated) configuration unless the source text explicitly states otherwise.** Extract the required fields and output them in JSON format as shown in the template below:
+{
+  "records": [
+    {
+      "gate": "(gate electrode material name)",
+      "source": "(source electrode material name)",
+      "drain": "(drain electrode material name)",
+      "structure_design_type": "(e.g. planar, vertical, coplanar, back-gated, top-gated, interdigitated)"
+    }
+    (continue with additional objects for each distinct sensor if the publication records multiple device architectures, e.g., different gate materials or sensing films)
+  ]
+}
+**Output ONLY the JSON array—no markdown code fences, no extra text, and no surrounding explanations.**
+Each distinct sensor (e.g., Na⁺, K⁺, Ca²⁺, pH) should be represented by its own record. When filling the fields, **do NOT include element symbols or abbreviations; output only the full material name**.  
+When the paper describes an ‘extended‑gate FET’, ‘remote gate’, ‘shared reference electrode’, or any architecture where the gate is physically separate from the channel, set `structure_design_type` to `remote gate`.  
+Map ‘Remote (or side‑gated)’→‘Remote’.  
+*For example, a back‑gated configuration using a gold back‑gate electrode and gold source and drain electrodes would be described with gate: gold, source: gold, drain: gold.*
