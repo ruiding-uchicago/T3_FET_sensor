@@ -2,6 +2,13 @@
 
 Reference implementation for the T3 agentic framework.
 
+## Publication
+
+- The first version of this work was a **spotlight** at the **ICLR 2026 AI4MAT** workshop: https://openreview.net/forum?id=eqBZpIAHGC&noteId=eqBZpIAHGC
+- The paper has since been **accepted to the main conference of the KDD AI4S track**: https://openreview.net/forum?id=7QfGX651NZ
+
+The full appendix is available here: [T3_appendix.pdf](T3_appendix.pdf).
+
 ## Overview
 
 **FET Sensor Digital Twin:** Structured representation of 28 fields across 5 categories extracted from scientific literature.
